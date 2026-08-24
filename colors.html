@@ -4,20 +4,31 @@
     <title>Colors</title>
     <script>
         document.addEventListener('DOMContentLoaded', function(){
-            document.querySelectorAll('button').forEach(function(button){
-                button.onclick = function(){
-                    document.querySelector('h1').style.color = button.dataset.color;
-                };
+            document.querySelector('select').onchange = function() {
+                document.querySelector('#hello').style.color = this.value;
+            };
             });
-        });
+        
 
             
     </script>
 </head>
 <body>
-    <h1>Hello</h1>
-    <button data-color="red">Red</button>
-    <button data-color="blue">Blue</button>
-    <button data-color="green">Green</button>
+    <h1 id="hello">Hello</h1>
+    <select>
+        <option value="black">Black</option>
+        <option value="red">Red</option>
+        <option value="blue">Blue</option>
+        <option value="green">Green</option>
+    </select>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.4/dist/confetti.browser.min.js"></script>
+    <script>
+        confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 },
+            colors: ['#ffffff', '#ff0000', '#c0c0c0'] // Matches the red, white, and silver in your screenshot
+        });
+    </script>
 </body>
 </html>
